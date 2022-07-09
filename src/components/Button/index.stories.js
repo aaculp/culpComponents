@@ -20,23 +20,43 @@ export default {
     },
     argTypes: {
         backgroundColor: {
-            description: 'Override background color.',
+            description: 'Override background color style.',
+            type: 'string'
+        },
+        borderStyle: {
+            description: 'Override border.',
             type: 'string'
         },
         children: {
             description: 'The contents of the button'
+        },
+        color: {
+            description: 'Override Typography text color.',
+            type: 'string'
         }
     }
 }
 
 export const Default = Template.bind({});
 Default.args = {
-    backgroundColor: 'black',
-    children: 'Button Text'
+    backgroundColor: '#4d524d',
+    borderStyle: "1px solid #4d524d",
+    children: 'Submit',
+    color: 'white'
 }
 
 export const Primary = Template.bind({});
 Primary.args = {
+    backgroundColor: 'green',
+    borderStyle: "1px solid transparent",
+    children: 'Submit',
+    color: 'white'
+}
+
+export const Secondary = Template.bind({});
+Primary.args = {
     backgroundColor: 'red',
-    children: 'Button Text'
+    borderStyle: "2px solid black",
+    children: 'Submit',
+    color: 'white'
 }

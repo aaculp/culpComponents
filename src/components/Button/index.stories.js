@@ -33,6 +33,9 @@ export default {
         color: {
             description: 'Override Typography text color.',
             type: 'string'
+        },
+        isLink: {
+            description: 'Changes DOM structure for Links.',
         }
     }
 }
@@ -42,7 +45,8 @@ Default.args = {
     backgroundColor: '#4d524d',
     borderStyle: "1px solid #4d524d",
     children: 'Submit',
-    color: 'white'
+    color: 'white',
+    isLink: false
 }
 
 export const Primary = Template.bind({});
@@ -50,13 +54,15 @@ Primary.args = {
     backgroundColor: 'green',
     borderStyle: "1px solid transparent",
     children: 'Submit',
-    color: 'white'
+    color: 'white',
+    isLink: false
 }
 
 export const Secondary = Template.bind({});
-Primary.args = {
+Secondary.args = {
     backgroundColor: 'red',
     borderStyle: "2px solid black",
     children: 'Submit',
-    color: 'white'
+    color: 'white',
+    isLink: false
 }

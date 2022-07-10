@@ -7,8 +7,8 @@ import styled from 'styled-components';
 
 // Private
 
-const StyledButton = styled.span`
- ${({ $backgroundColor,$borderStyle, $color }) => `
+const StyledButton = styled.button`
+ ${({ $backgroundColor, $borderStyle, $color }) => `
     align-content: center;
     background: ${$backgroundColor};
     border: ${$borderStyle};
@@ -26,14 +26,24 @@ const StyledButton = styled.span`
 
 // Public
 
-const Button = ({ backgroundColor, borderStyle, children, color }) => (
-    <StyledButton
-        $backgroundColor={backgroundColor}
-        $borderStyle={borderStyle}
-        $color={color}
-    >
-        {children}
-    </StyledButton>
-);
+const Button = ({ backgroundColor, borderStyle, children, color, isLink = false, ...otherProps }) => {
+    const element = isLink ? 'a' : 'button';
+
+    return (
+        <StyledButton
+            $backgroundColor={backgroundColor}
+            $borderStyle={borderStyle}
+            $color={color}
+            // Need to update functionality
+            aria-pressed="false"
+            forwardedAs={element}
+            tabindex="0"
+            type="button"
+            {...otherProps}
+        >
+            {children}
+        </StyledButton>
+    )
+}
 
 export default Button;
